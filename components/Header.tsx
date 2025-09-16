@@ -12,7 +12,7 @@ const Header = () => {
           { label: "أعمالنا", href: "/#portfolio" },
           { label: "تواصل معنا", href: "/#contact" },
         ]}
-        activeHref="/"
+        // activeHref="/"
         className="custom-nav"
         ease="power2.easeOut"
         baseColor="#000000"

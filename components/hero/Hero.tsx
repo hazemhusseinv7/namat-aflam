@@ -6,7 +6,7 @@ import HeroAnimation from "@/components/hero/HeroAnimation";
 
 const Hero = () => {
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden">
       <SplashCursor />
       <div className="w-full px-20 py-4 absolute left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center text-center">
         <Image

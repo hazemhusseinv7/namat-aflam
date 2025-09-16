@@ -14,7 +14,7 @@ export interface PillNavProps {
   logo: string;
   logoAlt?: string;
   items: PillNavItem[];
-  activeHref?: string;
+  // activeHref?: string;
   className?: string;
   ease?: string;
   baseColor?: string;
@@ -29,7 +29,7 @@ const PillNav: React.FC<PillNavProps> = ({
   logo,
   logoAlt = "Logo",
   items,
-  activeHref,
+  // activeHref,
   className = "",
   ease = "power3.easeOut",
   baseColor = "#fff",
@@ -262,7 +262,7 @@ const PillNav: React.FC<PillNavProps> = ({
   } as React.CSSProperties;
 
   return (
-    <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-1/2 md:-translate-x-1/2">
+    <div className="fixed top-[1em] z-[1000] w-full left-0 md:w-auto md:left-1/2 md:-translate-x-1/2">
       <nav
         className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
         aria-label="Primary"
@@ -309,11 +309,14 @@ const PillNav: React.FC<PillNavProps> = ({
               background: "var(--base, #000)",
             }}
           >
-            <img
+            <Image
               src={logo}
+              width={18}
+              height={18}
               alt={logoAlt}
               ref={logoImgRef}
               className="w-full h-full object-cover block"
+              priority
             />
           </a>
         )}
@@ -332,7 +335,7 @@ const PillNav: React.FC<PillNavProps> = ({
             style={{ gap: "var(--pill-gap)" }}
           >
             {items.map((item, i) => {
-              const isActive = activeHref === item.href;
+              // const isActive = activeHref === item.href;
 
               const pillStyle: React.CSSProperties = {
                 background: "var(--pill-bg, #fff)",
