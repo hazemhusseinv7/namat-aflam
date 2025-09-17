@@ -11,7 +11,7 @@ const HeroAnimation = () => {
       if (typeof window === "undefined") return;
 
       const width = window.innerWidth;
-      if (width < 640) setScale(0.2);
+      if (width < 640) setScale(0.18);
       else if (width < 768) setScale(0.25);
       else if (width < 1024) setScale(0.3);
       else if (width < 1280) setScale(0.35);
@@ -32,7 +32,7 @@ const HeroAnimation = () => {
 
   return (
     <div className="relative h-screen w-full">
-      <CrowdCanvas src="/hero/peeps.png" rows={12} cols={9} scale={scale} />
+      <CrowdCanvas src="/hero/peeps.png" rows={9} cols={7} scale={scale} />
     </div>
   );
 };

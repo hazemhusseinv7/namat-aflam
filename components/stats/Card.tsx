@@ -29,7 +29,7 @@ const Card = ({ title, num, icon: Icon, className = "" }: CardProps) => {
       )}
     >
       <AnimatedNumber
-        className="inline-flex items-center text-2xl lg:text-7xl font-light text-orange-500 dark:text-zinc-50"
+        className="inline-flex items-center text-3xl lg:text-7xl font-light text-orange-500 dark:text-zinc-50"
         springOptions={{
           bounce: 0,
           duration: 2000,
@@ -37,8 +37,10 @@ const Card = ({ title, num, icon: Icon, className = "" }: CardProps) => {
         value={value}
       />
       <div className="flex items-center gap-2">
-        <Icon className="size-8 ms-2 text-orange-500" />
-        <h3 className="font-normal text-3xl text-zinc-500">{title}</h3>
+        <Icon className="size-8 lg:ms-2 text-orange-500" />
+        <h3 className="font-normal text-2xl lg:text-3xl text-zinc-500">
+          {title}
+        </h3>
       </div>
     </div>
   );
