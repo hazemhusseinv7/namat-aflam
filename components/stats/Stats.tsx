@@ -15,6 +15,7 @@ const Stats = () => {
     { title: "صورة احترافية", num: 12000, icon: FaImages },
     { title: "حملة ترويجية ناجحة", num: 1000, icon: MdInsertChart },
   ];
+
   return (
     <section id="stats" className="relative">
       <div className="px-4 sm:px-5 md:px-8 lg:px-10 py-20 lg:py-40 container mx-auto">
@@ -67,7 +68,7 @@ const Stats = () => {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.05,
+                  staggerChildren: 0.3,
                 },
               },
             },

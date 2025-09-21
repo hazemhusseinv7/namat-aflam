@@ -273,7 +273,6 @@ const PillNav: React.FC<PillNavProps> = ({
             href={items[0].href}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
-            role="menuitem"
             ref={(el) => {
               logoRef.current = el;
             }}
@@ -295,7 +294,7 @@ const PillNav: React.FC<PillNavProps> = ({
             />
           </Link>
         ) : (
-          <a
+          <Link
             href={items?.[0]?.href || "#"}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
@@ -318,7 +317,7 @@ const PillNav: React.FC<PillNavProps> = ({
               className="w-full h-full object-cover block"
               priority
             />
-          </a>
+          </Link>
         )}
 
         <div
@@ -403,7 +402,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       {PillContent}
                     </Link>
                   ) : (
-                    <a
+                    <Link
                       role="menuitem"
                       href={item.href}
                       className={basePillClasses}
@@ -413,7 +412,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       onMouseLeave={() => handleLeave(i)}
                     >
                       {PillContent}
-                    </a>
+                    </Link>
                   )}
                 </li>
               );
@@ -484,7 +483,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     {item.label}
                   </Link>
                 ) : (
-                  <a
+                  <Link
                     href={item.href}
                     className={linkClasses}
                     style={defaultStyle}
@@ -493,7 +492,7 @@ const PillNav: React.FC<PillNavProps> = ({
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
               </li>
             );

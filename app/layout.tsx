@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -23,7 +24,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <body className={`${rubik.variable} antialiased font-rubik`}>
         <Header />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>

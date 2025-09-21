@@ -1,5 +1,5 @@
 "use client";
-
+import { CardContent, Card as CardWrapper } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 
 import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
@@ -22,27 +22,29 @@ const Card = ({ title, num, icon: Icon, className = "" }: CardProps) => {
   }, [num]);
 
   return (
-    <div
+    <CardWrapper
       className={cn(
-        "flex flex-col gap-4 w-full h-auto mx-auto border bg-gradient-to-tr from-zinc-100/40 to-zinc-50 border-zinc-200 shadow-2xl shadow-zinc-100 px-4 py-8 rounded-xl",
+        "w-full h-auto mx-auto bg-gradient-to-tr from-zinc-100/40 to-zinc-50 shadow-zinc-100",
         className
       )}
     >
-      <AnimatedNumber
-        className="inline-flex items-center text-3xl lg:text-7xl font-light text-orange-500 dark:text-zinc-50"
-        springOptions={{
-          bounce: 0,
-          duration: 2000,
-        }}
-        value={value}
-      />
-      <div className="flex items-center gap-2">
-        <Icon className="size-8 lg:ms-2 text-orange-500" />
-        <h3 className="font-normal text-2xl lg:text-3xl text-zinc-500">
-          {title}
-        </h3>
-      </div>
-    </div>
+      <CardContent className="flex flex-col gap-4 px-4">
+        <AnimatedNumber
+          className="inline-flex items-center text-3xl lg:text-7xl font-light text-orange-500 dark:text-zinc-50"
+          springOptions={{
+            bounce: 0,
+            duration: 2000,
+          }}
+          value={value}
+        />
+        <div className="flex items-center gap-2 lg:px-2">
+          <Icon className="size-8 text-orange-500" />
+          <h3 className="font-normal text-2xl lg:text-3xl text-zinc-500">
+            {title}
+          </h3>
+        </div>
+      </CardContent>
+    </CardWrapper>
   );
 };
 

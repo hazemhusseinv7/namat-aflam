@@ -1,6 +1,6 @@
 "use client";
-import { JSX, ReactNode } from "react";
-import { motion, Variants } from "motion/react";
+import { JSX, ReactNode, useRef } from "react";
+import { motion, useInView, Variants } from "motion/react";
 import React from "react";
 
 export type PresetType =
@@ -108,6 +108,12 @@ function AnimatedGroup({
   as = "div",
   asChild = "div",
 }: AnimatedGroupProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, {
+    once: true,
+    amount: 0.3,
+  });
+
   const selectedVariants = {
     item: addDefaultVariants(preset ? presetVariants[preset] : {}),
     container: addDefaultVariants(defaultContainerVariants),
@@ -125,18 +131,20 @@ function AnimatedGroup({
   );
 
   return (
-    <MotionComponent
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className={className}
-    >
-      {React.Children.map(children, (child, index) => (
-        <MotionChild key={index} variants={itemVariants}>
-          {child}
-        </MotionChild>
-      ))}
-    </MotionComponent>
+    <div ref={containerRef}>
+      <MotionComponent
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={containerVariants}
+        className={className}
+      >
+        {React.Children.map(children, (child, index) => (
+          <MotionChild key={index} variants={itemVariants}>
+            {child}
+          </MotionChild>
+        ))}
+      </MotionComponent>
+    </div>
   );
 }
 
