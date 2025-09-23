@@ -4,6 +4,7 @@ import Image from "next/image";
 import HoverLink from "@/components/HoverLink";
 
 import {
+  FaSquareVimeo,
   FaSquareInstagram,
   FaTiktok,
   FaLinkedin,
@@ -13,8 +14,12 @@ import {
 
 const links = [
   {
-    title: "إحصائيات",
-    link: "/#stats",
+    title: "من نحن",
+    link: "/#about-us",
+  },
+  {
+    title: "لماذا نحن",
+    link: "/#why-us",
   },
   {
     title: "أعمالنا",
@@ -27,6 +32,11 @@ const links = [
 ];
 
 const socialMedia = [
+  {
+    name: "Vimeo",
+    link: process.env.NEXT_PUBLIC_VIMEO,
+    icon: FaSquareVimeo,
+  },
   {
     name: "Instagram",
     link: process.env.NEXT_PUBLIC_INSTAGRAM,
@@ -97,9 +107,9 @@ const Footer = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
-          radial-gradient(circle at 50% 100%, rgba(253, 224, 71, 0.4) 0%, transparent 60%),
-          radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.4) 0%, transparent 70%),
-          radial-gradient(circle at 50% 100%, rgba(244, 114, 182, 0.5) 0%, transparent 80%)
+          radial-gradient(circle at 50% 100%, rgba(253, 224, 71, 0.4) 0%, rgba(253, 224, 71, 0.3) 100%),
+          radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.4) 0%, transparent 100%),
+          radial-gradient(circle at 50% 100%, rgba(244, 114, 182, 0.5) 0%, transparent 100%)
         `,
         }}
       />

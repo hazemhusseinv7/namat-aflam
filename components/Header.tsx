@@ -7,10 +7,11 @@ const Header = () => {
         logo="/logo/icon_alt.svg"
         logoAlt="Logo"
         items={[
-          { label: "الرئيسية", href: "/" },
-          { label: "إحصائيات", href: "/#stats" },
+          { label: "من نحن", href: "/#about-us" },
+          { label: "لماذا نحن", href: "/#why-us" },
           { label: "أعمالنا", href: "/#portfolio" },
-          { label: "تواصل معنا", href: "/#contact" },
+
+          { label: "تواصل معنا", href: "/#contact-us" },
         ]}
         // activeHref="/"
         className="custom-nav"

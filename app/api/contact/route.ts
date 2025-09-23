@@ -29,10 +29,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, phone, message } = await request.json();
+    const { name, email, phone, serviceType, message } = await request.json();
 
     // Validate required fields
-    if (!name || !email || !message) {
+    if (!name || !phone || !serviceType) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
         name,
         email,
         phone,
+        serviceType,
         message,
       }),
     });

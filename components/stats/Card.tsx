@@ -24,13 +24,13 @@ const Card = ({ title, num, icon: Icon, className = "" }: CardProps) => {
   return (
     <CardWrapper
       className={cn(
-        "w-full h-auto mx-auto bg-gradient-to-tr from-zinc-100/40 to-zinc-50 shadow-zinc-100",
+        "group w-full h-auto mx-auto bg-gradient-to-tr from-zinc-100/40 to-zinc-50 shadow-zinc-100",
         className
       )}
     >
       <CardContent className="flex flex-col gap-4 px-4">
         <AnimatedNumber
-          className="inline-flex items-center text-3xl lg:text-7xl font-light text-orange-500 dark:text-zinc-50"
+          className="inline-flex items-center text-3xl lg:text-7xl font-light group-hover:font-normal text-orange-500 dark:text-zinc-50 transition-all duration-300"
           springOptions={{
             bounce: 0,
             duration: 2000,
@@ -38,10 +38,10 @@ const Card = ({ title, num, icon: Icon, className = "" }: CardProps) => {
           value={value}
         />
         <div className="flex items-center gap-2 lg:px-2">
-          <Icon className="size-8 text-orange-500" />
-          <h3 className="font-normal text-2xl lg:text-3xl text-zinc-500">
+          <Icon className="size-8 text-orange-500 group-hover:scale-120 group-hover:lg:scale-140 transition-transform duration-300" />
+          <span className="font-normal text-2xl lg:text-3xl text-zinc-500 group-hover:mr-2 group-hover:lg:mr-4 transition-all duration-300">
             {title}
-          </h3>
+          </span>
         </div>
       </CardContent>
     </CardWrapper>

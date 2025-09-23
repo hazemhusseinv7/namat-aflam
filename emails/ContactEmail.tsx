@@ -9,19 +9,20 @@ import {
   Text,
   Tailwind,
 } from "@react-email/components";
-import * as React from "react";
 
 interface ContactEmailProps {
   name: string;
-  email: string;
-  phone?: string;
-  message: string;
+  email?: string;
+  phone: string;
+  serviceType: string;
+  message?: string;
 }
 
 export const ContactEmail = ({
   name,
   email,
   phone,
+  serviceType,
   message,
 }: ContactEmailProps) => {
   return (
@@ -42,24 +43,32 @@ export const ContactEmail = ({
               <Text className="text-gray-600">
                 <strong>الإسم:</strong> {name}
               </Text>
-              <Text className="text-gray-600">
-                <strong>البريد الإلكتروني:</strong> {email}
-              </Text>
-              {phone && (
+
+              {email && (
                 <Text className="text-gray-600">
-                  <strong>رقم الهاتف:</strong> {phone}
+                  <strong>البريد الإلكتروني:</strong> {email}
                 </Text>
               )}
+
+              <Text className="text-gray-600">
+                <strong>رقم الهاتف:</strong> {phone}
+              </Text>
+
+              <Text className="text-gray-600">
+                <strong>نوع العمل:</strong> {serviceType}
+              </Text>
             </Section>
 
-            <Section>
-              <Text className="text-lg font-semibold text-gray-700">
-                الرسالة:
-              </Text>
-              <Text className="text-gray-600 bg-gray-50 p-4 rounded-lg border border-gray-200">
-                {message}
-              </Text>
-            </Section>
+            {message && (
+              <Section>
+                <Text className="text-lg font-semibold text-gray-700">
+                  الرسالة:
+                </Text>
+                <Text className="text-gray-600 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  {message}
+                </Text>
+              </Section>
+            )}
 
             <Section className="mt-8 pt-6 border-t border-gray-200">
               <Text className="text-sm text-gray-500">

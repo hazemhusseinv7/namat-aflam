@@ -1,6 +1,14 @@
 "use client";
 
-import { Form, Input, Button, Textarea, addToast } from "@heroui/react";
+import {
+  Form,
+  Input,
+  Button,
+  Textarea,
+  addToast,
+  Select,
+  SelectItem,
+} from "@heroui/react";
 
 import { Card } from "@/components/ui/card";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
@@ -10,6 +18,7 @@ interface FormDataType {
   name: string;
   email: string;
   phone: string;
+  serviceType: string;
   message: string;
 }
 
@@ -19,6 +28,7 @@ const ContactUs = () => {
     name: "",
     email: "",
     phone: "",
+    serviceType: "",
     message: "",
   });
 
@@ -46,7 +56,7 @@ const ContactUs = () => {
       if (response.ok) {
         addToast({
           title: "تم الإرسال بنجاح",
-          description: "سيتم الرد عليك قريباً",
+          description: "شكرًا لتواصلك سنتواصل معك قريبًا!",
           color: "success",
         });
 
@@ -55,6 +65,7 @@ const ContactUs = () => {
           name: "",
           email: "",
           phone: "",
+          serviceType: "",
           message: "",
         });
       } else {
@@ -71,6 +82,13 @@ const ContactUs = () => {
       setIsLoading(false);
     }
   };
+
+  const items = [
+    { key: "مقطع ترويجي", label: "مقطع ترويجي" },
+    { key: "صور احترافية", label: "صور احترافية" },
+    { key: "حملة", label: "حملة" },
+    { key: "غيره", label: "غيره" },
+  ];
 
   return (
     <section id="contact-us">
@@ -103,8 +121,8 @@ const ContactUs = () => {
               },
             }}
           >
-            {`تواصل معنا
-             لنجيب عن استفساراتك`}
+            {`فكرتك جاهزة…؟
+             نحن نعرف كيف نرويها!`}
           </TextEffect>
         </div>
 
@@ -122,16 +140,6 @@ const ContactUs = () => {
             />
 
             <Input
-              type="email"
-              name="email"
-              label="البريد الإلكترونى"
-              labelPlacement="inside"
-              value={formData.email}
-              onValueChange={(value) => handleInputChange("email", value)}
-              errorMessage="البريد الإلكتروني غير صالح"
-            />
-
-            <Input
               required
               type="tel"
               name="phone"
@@ -142,8 +150,30 @@ const ContactUs = () => {
               errorMessage="رقم الهاتف مطلوب"
             />
 
-            <Textarea
+            <Input
+              type="email"
+              name="email"
+              label="البريد الإلكترونى"
+              labelPlacement="inside"
+              value={formData.email}
+              onValueChange={(value) => handleInputChange("email", value)}
+              errorMessage="البريد الإلكتروني غير صالح"
+            />
+
+            <Select
               required
+              items={items}
+              label="نوع العمل"
+              selectedKeys={formData.serviceType ? [formData.serviceType] : []}
+              onSelectionChange={(keys) => {
+                const selectedKey = Array.from(keys)[0] as string;
+                handleInputChange("serviceType", selectedKey);
+              }}
+            >
+              {(item) => <SelectItem key={item.key}>{item.label}</SelectItem>}
+            </Select>
+
+            <Textarea
               name="message"
               label="الرسالة"
               labelPlacement="inside"
@@ -151,10 +181,11 @@ const ContactUs = () => {
               onValueChange={(value) => handleInputChange("message", value)}
               errorMessage="الرسالة مطلوبة"
             />
+
             <Button
               color="primary"
               type="submit"
-              className="w-full bg-orange-600"
+              className="w-full bg-gradient-to-tr from-orange-500 to-orange-600"
               isLoading={isLoading}
               disabled={isLoading}
             >
