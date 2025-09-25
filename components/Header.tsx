@@ -10,7 +10,7 @@ const Header = () => {
           { label: "من نحن", href: "/#about-us" },
           { label: "لماذا نحن", href: "/#why-us" },
           { label: "أعمالنا", href: "/#portfolio" },
-
+          { label: "خدماتنا", href: "/#services" },
           { label: "تواصل معنا", href: "/#contact-us" },
         ]}
         // activeHref="/"

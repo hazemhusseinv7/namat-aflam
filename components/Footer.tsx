@@ -26,6 +26,10 @@ const links = [
     link: "/#portfolio",
   },
   {
+    title: "خدماتنا",
+    link: "/#services",
+  },
+  {
     title: "تواصل معنا",
     link: "/#contact",
   },

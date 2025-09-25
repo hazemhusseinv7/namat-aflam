@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
+import { Spinner } from "@heroui/spinner";
+
 const Skiper19 = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -25,7 +27,7 @@ const Skiper19 = () => {
         <h2 className="relative z-10 text-4xl font-medium tracking-[-0.08em] lg:text-5xl">
           من نحن
         </h2>
-        <p className="relative z-10 text-7xl font-medium tracking-[-0.08em] lg:text-9xl leading-[1.3]">
+        <p className="relative z-10 text-5xl font-medium tracking-[-0.08em] lg:text-9xl leading-[1.3]">
           في كل علامة تجارية <br /> قصة لم تُروى بعد <br />
         </p>
         <p className="relative z-10 max-w-2xl text-xl lg:text-3xl font-medium text-[#1F3A4B]">
@@ -42,13 +44,13 @@ const Skiper19 = () => {
         />
       </div>
 
-      <div className="w-full translate-y-[105vh] lg:translate-y-[165vh] relative pb-10 mt-20 lg:mt-40">
+      <div className="w-full translate-y-[150vh] md:translate-y-[170vh] lg:translate-y-[180vh] relative pb-10 mt-20 lg:mt-40">
         {vimeoId && (
           <div>
             {/* Loading state */}
             {!isVideoLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-xl">جاري تحميل الفيديو...</div>
+                <Spinner className="text-orange-400" />
               </div>
             )}
 

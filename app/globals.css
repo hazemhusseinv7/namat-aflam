@@ -121,3 +121,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Text Selection */
+::-moz-selection {
+  @apply text-orange-50 bg-orange-400;
+}
+
+::selection {
+  @apply text-orange-50 bg-orange-400;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  @apply w-[10px];
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-orange-400/10;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-orange-400 hover:bg-orange-300 rounded-full;
+}
