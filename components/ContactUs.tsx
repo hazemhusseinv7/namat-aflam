@@ -137,6 +137,7 @@ const ContactUs = () => {
               value={formData.name}
               onValueChange={(value) => handleInputChange("name", value)}
               errorMessage="الإسم مطلوب"
+              className="!text-orange-50"
             />
 
             <Input

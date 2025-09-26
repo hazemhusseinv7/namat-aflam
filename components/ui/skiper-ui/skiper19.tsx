@@ -21,7 +21,7 @@ const Skiper19 = () => {
   return (
     <section
       ref={ref}
-      className="mx-auto flex h-[350vh] w-screen flex-col items-center overflow-hidden bg-orange-50/70 px-4 text-[#1F3A4B]"
+      className="relative mx-auto flex h-[200vh] lg:h-[350vh] w-screen flex-col items-center overflow-hidden bg-orange-50/70 px-4 text-[#1F3A4B]"
     >
       <div className="mt-42 relative flex w-fit flex-col items-center justify-center gap-5 text-center">
         <h2 className="relative z-10 text-4xl font-medium tracking-[-0.08em] lg:text-5xl">
@@ -44,7 +44,7 @@ const Skiper19 = () => {
         />
       </div>
 
-      <div className="w-full translate-y-[150vh] md:translate-y-[170vh] lg:translate-y-[180vh] relative pb-10 mt-20 lg:mt-40">
+      <div className="w-full absolute -bottom-40 pb-10 mt-20 lg:mt-40">
         {vimeoId && (
           <div>
             {/* Loading state */}

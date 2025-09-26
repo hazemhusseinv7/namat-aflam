@@ -6,13 +6,13 @@ import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import Card from "./Card";
 
 import { PiFilmSlateFill } from "react-icons/pi";
-import { FaImages } from "react-icons/fa6";
+import { IoMdImage } from "react-icons/io";
 import { MdInsertChart } from "react-icons/md";
 
 const Stats = () => {
   const cards = [
     { title: "دقيقة سينمائية", num: 10000, icon: PiFilmSlateFill },
-    { title: "صورة احترافية", num: 12000, icon: FaImages },
+    { title: "صورة احترافية", num: 12000, icon: IoMdImage  },
     { title: "حملة ترويجية ناجحة", num: 1000, icon: MdInsertChart },
   ];
 
@@ -61,7 +61,7 @@ const Stats = () => {
         </div>
 
         <AnimatedGroup
-          className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-8"
+          className="grid grid-cols-3 gap-3 lg:gap-4"
           variants={{
             container: {
               hidden: { opacity: 0 },
