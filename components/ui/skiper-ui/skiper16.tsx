@@ -59,13 +59,13 @@ const StickyCard_001 = ({
           scale,
           top: `calc(-5vh + ${i * 20 + 250}px)`,
         }}
-        className="group rounded-4xl relative -top-1/4 flex h-[200px] w-[300px] sm:h-[300px] sm:w-[500px] lg:h-[500px] lg:w-[800px] origin-top flex-col overflow-hidden bg-gradient-to-tr from-neutral-300 to-neutral-100 text-neutral-700 px-5 py-8 lg:px-10 lg:py-20"
+        className="group rounded-4xl relative -top-1/4 flex h-[200px] w-[300px] sm:h-[300px] sm:w-[500px] lg:h-[500px] lg:w-[800px] origin-top flex-col overflow-hidden bg-gradient-to-tr from-zinc-700 to-zinc-800 text-zinc-200 px-5 py-8 lg:px-10 lg:py-20"
       >
         <div className="flex flex-col gap-2 lg:gap-4">
           <h3 className="font-medium text-2xl lg:text-4xl">{title}</h3>
           <p className="text-lg lg:text-2xl">{description}</p>
         </div>
-        <Icon className="absolute bottom-2 left-2 lg:bottom-10 lg:left-10 size-20 lg:size-72 text-neutral-700 group-hover:scale-150 group-hover:-bottom-10 group-hover:-left-10 group-hover:text-orange-400 transition-all duration-300" />
+        <Icon className="absolute bottom-2 left-2 lg:bottom-10 lg:left-10 size-20 lg:size-72 text-zinc-400 group-hover:scale-150 group-hover:-bottom-10 group-hover:-left-10 group-hover:text-orange-400 transition-all duration-300" />
       </motion.div>
     </div>
   );

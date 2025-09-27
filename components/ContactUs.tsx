@@ -126,7 +126,7 @@ const ContactUs = () => {
           </TextEffect>
         </div>
 
-        <Card className="max-w-xl mx-auto px-6 bg-zinc-100/30 shadow-2xl shadow-zinc-200">
+        <Card className="max-w-xl mx-auto px-6 border-zinc-800 bg-zinc-900 shadow-2xl shadow-zinc-900">
           <Form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
             <Input
               required
@@ -186,7 +186,7 @@ const ContactUs = () => {
             <Button
               color="primary"
               type="submit"
-              className="w-full bg-gradient-to-tr from-orange-500 to-orange-600"
+              className="w-full "
               isLoading={isLoading}
               disabled={isLoading}
             >

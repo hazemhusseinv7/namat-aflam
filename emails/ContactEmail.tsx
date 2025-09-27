@@ -30,7 +30,7 @@ export const ContactEmail = ({
       <Head />
       <Tailwind>
         <Preview>رسالة جديدة من {name}</Preview>
-        <Body className="bg-white font-sans">
+        <Body>
           <Container className="max-w-2xl mx-auto p-6">
             <Heading className="text-2xl font-bold text-gray-800 mb-4">
               رسالة جديدة

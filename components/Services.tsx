@@ -42,13 +42,13 @@ const Services = () => {
                 }}
                 className="flex max-w-[500px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
               >
-                <div className="size-full bg-neutral-100">
+                <div className="size-full bg-zinc-800">
                   <Image
                     src={service.img}
                     width={500}
                     height={500}
                     alt={service.title}
-                    className="size-full object-cover"
+                    className="size-full object-cover -mt-16 lg:-mt-20"
                   />
                 </div>
                 <div className="px-4 pt-4 pb-8">

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Almarai } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const rubik = Rubik({
-  variable: "--font-rubik",
-  subsets: ["latin"],
+const almarai = Almarai({
+  variable: "--font-almarai",
+  weight: ["300", "400", "700", "800"],
+  subsets: ["latin", "arabic"],
 });
 
 export const metadata: Metadata = {
@@ -21,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="scroll-smooth">
-      <body className={`${rubik.variable} antialiased font-rubik`}>
+    <html lang="ar" dir="rtl" className="dark scroll-smooth">
+      <body className={`${almarai.variable} antialiased font-rubik`}>
         <Header />
         <Providers>{children}</Providers>
         <Footer />

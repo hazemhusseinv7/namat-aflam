@@ -7,7 +7,6 @@ import {
   FaSquareVimeo,
   FaSquareInstagram,
   FaTiktok,
-  FaLinkedin,
   FaYoutube,
   FaRegCopyright,
 } from "react-icons/fa6";
@@ -20,10 +19,6 @@ const links = [
   {
     title: "لماذا نحن",
     link: "/#why-us",
-  },
-  {
-    title: "أعمالنا",
-    link: "/#portfolio",
   },
   {
     title: "خدماتنا",
@@ -52,11 +47,6 @@ const socialMedia = [
     icon: FaTiktok,
   },
   {
-    name: "Linkedin",
-    link: process.env.NEXT_PUBLIC_LINKEDIN,
-    icon: FaLinkedin,
-  },
-  {
     name: "Youtube",
     link: process.env.NEXT_PUBLIC_YOUTUBE,
     icon: FaYoutube,
@@ -70,7 +60,7 @@ const Footer = () => {
         <Link href="/" aria-label="Home" className="mx-auto block size-fit">
           <Image
             className="w-40 lg:w-56 max-w-3/4 mx-auto"
-            src="/logo/logo.svg"
+            src="/logo/logo_colored.svg"
             width={512}
             height={180}
             alt="Logo"
@@ -90,7 +80,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={item.name}
-              className="block text-foreground hover:text-background transition-colors duration-300"
+              className="block text-foreground hover:text-orange-500 transition-colors duration-300"
             >
               <item.icon className="size-6" />
             </Link>
@@ -101,7 +91,7 @@ const Footer = () => {
           {new Date().getFullYear()} جميع الحقوق محفوظة.{" "}
           <Link
             href="/"
-            className="hover:text-background transition-colors duration-300"
+            className="hover:text-orange-500 transition-colors duration-300"
           >
             شركة فكرة نمط
           </Link>
@@ -110,11 +100,8 @@ const Footer = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `
-          radial-gradient(circle at 50% 100%, rgba(253, 224, 71, 0.4) 0%, rgba(253, 224, 71, 0.3) 100%),
-          radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.4) 0%, transparent 100%),
-          radial-gradient(circle at 50% 100%, rgba(244, 114, 182, 0.5) 0%, transparent 100%)
-        `,
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%), #000000",
         }}
       />
     </footer>

@@ -70,7 +70,7 @@ const Skiper54 = () => {
     },
   ];
   return (
-    <div className="flex flex-col gap-20 h-full w-screen items-center justify-center overflow-hidden bg-[#f5f4f3] py-40">
+    <div className="flex flex-col gap-20 h-full w-screen items-center justify-center overflow-hidden bg-background py-40">
       <h2 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">
         أعمالنا
       </h2>
