@@ -300,5 +300,3 @@ export function TextEffect({
     </div>
   );
 }
-
-

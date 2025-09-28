@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Section } from "@/components/ui/section";
 import { Tilt } from "@/components/motion-primitives/tilt";
 
 const Services = () => {
@@ -27,8 +28,8 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="relative">
-      <div className="flex flex-col justify-center items-center gap-40 px-4 pb-40">
+    <Section id="services" className="relative">
+      <div className="flex flex-col justify-center items-center relative z-10 gap-40">
         <h2 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">
           خدماتنا
         </h2>
@@ -40,15 +41,15 @@ const Services = () => {
                 style={{
                   borderRadius: "12px",
                 }}
-                className="flex max-w-[500px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+                className="flex max-w-[400px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
               >
                 <div className="size-full bg-zinc-800">
                   <Image
                     src={service.img}
-                    width={500}
-                    height={500}
+                    width={400}
+                    height={400}
                     alt={service.title}
-                    className="size-full object-cover -mt-16 lg:-mt-20"
+                    className="size-72 lg:size-100 mx-auto object-cover -mt-10 lg:-mt-20"
                   />
                 </div>
                 <div className="px-4 pt-4 pb-8">
@@ -64,7 +65,17 @@ const Services = () => {
           ))}
         </div>
       </div>
-    </section>
+
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: `
+          radial-gradient(ellipse 120% 80% at 50% 50%, #ff690010, transparent 50%) 
+     
+        `,
+        }}
+      />
+    </Section>
   );
 };
 

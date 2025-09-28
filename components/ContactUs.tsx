@@ -10,6 +10,7 @@ import {
   SelectItem,
 } from "@heroui/react";
 
+import { Section } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { useState } from "react";
@@ -91,9 +92,9 @@ const ContactUs = () => {
   ];
 
   return (
-    <section id="contact-us">
-      <div className="px-4 sm:px-5 md:px-8 lg:px-10 py-20 lg:py-40 container mx-auto">
-        <div className="flex flex-col space-y-2 font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl w-fit mx-auto leading-[1.4] text-center min-h-32 relative">
+    <Section id="contact-us">
+      <div className="container mx-auto pb-20">
+        <div className="flex flex-col space-y-2 font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl w-fit mx-auto leading-[1.4] text-center min-h-24 relative">
           <TextEffect
             per="line"
             as="h2"
@@ -126,7 +127,7 @@ const ContactUs = () => {
           </TextEffect>
         </div>
 
-        <Card className="max-w-xl mx-auto px-6 border-zinc-800 bg-zinc-900 shadow-2xl shadow-zinc-900">
+        <Card className="max-w-xl mx-auto p-4 border-zinc-800 bg-zinc-900 shadow-2xl shadow-zinc-900">
           <Form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
             <Input
               required
@@ -195,7 +196,7 @@ const ContactUs = () => {
           </Form>
         </Card>
       </div>
-    </section>
+    </Section>
   );
 };
 

@@ -7,14 +7,12 @@ import { Card } from "@/components/ui/card";
 import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
 
 import { IconType } from "react-icons";
-import { cn } from "@/lib/utils";
 
 import { PiFilmSlateFill } from "react-icons/pi";
 import { IoMdImage } from "react-icons/io";
 import { MdInsertChart } from "react-icons/md";
 
 interface StatItemProps {
-  label?: string;
   value: number;
   suffix?: string;
   description?: string;
@@ -23,34 +21,29 @@ interface StatItemProps {
 
 interface StatsProps {
   items?: StatItemProps[] | false;
-  className?: string;
 }
 
 const Stats = ({
   items = [
     {
-      // label: "",
       value: 10000,
       description: "دقيقة سينمائية",
       icon: PiFilmSlateFill,
     },
     {
-      // label: "",
       value: 12000,
       description: "صورة احترافية",
       icon: IoMdImage,
     },
     {
-      // label: "",
       value: 1000,
       description: "حملة ترويجية",
       icon: MdInsertChart,
     },
   ],
-  className,
 }: StatsProps) => {
   return (
-    <Section id="stats" className={cn(className, "px-1")}>
+    <Section id="stats" className="px-2">
       <div className="flex flex-col space-y-2 font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl w-fit mx-auto leading-[1.4] text-center min-h-32 relative">
         <TextEffect
           per="line"
@@ -89,11 +82,6 @@ const Stats = ({
           <div className="grid grid-cols-3 gap-2 lg:gap-10">
             {items.map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-3">
-                {item.label && (
-                  <div className="text-muted-foreground text-sm font-semibold">
-                    {item.label}
-                  </div>
-                )}
                 <div className="flex items-baseline gap-2">
                   <div className="from-foreground to-foreground dark:to-brand bg-linear-to-r bg-clip-text text-4xl font-medium text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)] transition-all duration-300 sm:text-5xl md:text-6xl">
                     <AnimatedNumber

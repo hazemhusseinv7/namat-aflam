@@ -52,14 +52,14 @@ const StickyCard_001 = ({
   return (
     <div
       ref={container}
-      className="sticky top-0 flex items-center justify-center"
+      className="sticky top-0 flex items-center justify-center w-full"
     >
       <motion.div
         style={{
           scale,
           top: `calc(-5vh + ${i * 20 + 250}px)`,
         }}
-        className="group rounded-4xl relative -top-1/4 flex h-[200px] w-[300px] sm:h-[300px] sm:w-[500px] lg:h-[500px] lg:w-[800px] origin-top flex-col overflow-hidden bg-gradient-to-tr from-zinc-700 to-zinc-800 text-zinc-200 px-5 py-8 lg:px-10 lg:py-20"
+        className="group rounded-4xl relative -top-1/4 flex h-[200px] w-full sm:h-[300px] sm:w-[500px] lg:h-[500px] lg:w-[800px] origin-top flex-col overflow-hidden bg-gradient-to-tr from-zinc-700 to-zinc-800 text-zinc-200 px-5 py-8 lg:px-10 lg:py-20"
       >
         <div className="flex flex-col gap-2 lg:gap-4">
           <h3 className="font-medium text-2xl lg:text-4xl">{title}</h3>
@@ -82,7 +82,7 @@ const Skiper16 = () => {
     <ReactLenis root>
       <div
         ref={container}
-        className="relative flex w-full flex-col items-center justify-center pb-[100vh] pt-[50vh]"
+        className="relative flex w-full flex-col items-center justify-center pt-10 sm:pt-20 lg:pt-80 pb-80"
       >
         <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center">
           <h2 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">

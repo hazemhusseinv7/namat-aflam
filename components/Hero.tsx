@@ -8,7 +8,7 @@ import { LogoCloud } from "@/components/logo-cloud";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col justify-between relative w-full min-h-screen overflow-hidden bg-[#060010]">
+    <section className="flex flex-col justify-between relative w-full min-h-screen overflow-hidden bg-foreground-100/10">
       <LightRays
         raysOrigin="top-center"
         raysColor="#ffffff"
@@ -30,6 +30,7 @@ const Hero = () => {
           height={160}
           alt="Logo"
           priority
+          fetchPriority="high"
         />
 
         <div className="flex flex-col gap-2 font-semibold text-2xl sm:text-4xl md:text-5xl lg:text-7xl">
