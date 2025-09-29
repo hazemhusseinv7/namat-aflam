@@ -52,7 +52,7 @@ const Services = () => {
                     className="size-72 lg:size-100 mx-auto object-cover -mt-10 lg:-mt-20"
                   />
                 </div>
-                <div className="px-4 pt-4 pb-8">
+                <div className="flex flex-col gap-1 px-4 pt-4 pb-5">
                   <h3 className="text-xl leading-snug text-zinc-950 dark:text-zinc-50">
                     {service.title}
                   </h3>
