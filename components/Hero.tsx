@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import HoverButton from "@/components/HoverButton";
 import LightRays from "@/components/LightRays";
-import { LogoCloud } from "@/components/logo-cloud";
+// import { LogoCloud } from "@/components/logo-cloud";
 
 const Hero = () => {
   return (
@@ -22,7 +22,7 @@ const Hero = () => {
         className="custom-rays absolute top-0 left-0"
       />
 
-      <div className="z-100 w-full px-8 lg:px-20 pt-40 lg:pt-56 flex flex-col gap-8 justify-center items-center text-center">
+      <div className="z-50 w-full px-8 lg:px-20 pt-40 lg:pt-56 flex flex-col gap-8 justify-center items-center text-center">
         <Image
           className="w-40 lg:w-100 max-w-3/4"
           src="/logo/logo_colored.svg"
@@ -43,16 +43,11 @@ const Hero = () => {
             </TextEffect>
           </div>
 
-          <HoverButton
-            content="أعمالنا"
-            className="mx-auto mt-4"
-            as={Link}
-            href="/#portfolio"
-          />
+          <HoverButton content="تواصل معنا" className="mx-auto mt-4" />
         </div>
       </div>
 
-      <LogoCloud />
+      {/* <LogoCloud /> */}
     </section>
   );
 };

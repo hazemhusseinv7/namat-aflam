@@ -14,7 +14,11 @@ import {
 const links = [
   {
     title: "من نحن",
-    link: "/#about-us",
+    link: "/about-us",
+  },
+  {
+    title: "أعمالنا",
+    link: "/#portfolio",
   },
   {
     title: "لماذا نحن",
@@ -26,7 +30,7 @@ const links = [
   },
   {
     title: "تواصل معنا",
-    link: "/#contact",
+    link: "/#contact-us",
   },
 ];
 

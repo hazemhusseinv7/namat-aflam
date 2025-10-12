@@ -11,6 +11,7 @@ import { IconType } from "react-icons";
 import { PiFilmSlateFill } from "react-icons/pi";
 import { IoMdImage } from "react-icons/io";
 import { MdInsertChart } from "react-icons/md";
+import { FaPlus } from "react-icons/fa6";
 
 interface StatItemProps {
   value: number;
@@ -82,7 +83,8 @@ const Stats = ({
           <div className="grid grid-cols-3 gap-2 lg:gap-10">
             {items.map((item, index) => (
               <div key={index} className="flex flex-col items-center gap-3">
-                <div className="flex items-baseline gap-2">
+                <div className="flex items-baseline gap-1">
+                  <FaPlus />
                   <div className="from-foreground to-foreground dark:to-brand bg-linear-to-r bg-clip-text text-4xl font-medium text-transparent drop-shadow-[2px_1px_24px_var(--brand-foreground)] transition-all duration-300 sm:text-5xl md:text-6xl">
                     <AnimatedNumber
                       className=""
@@ -99,11 +101,11 @@ const Stats = ({
                     </div>
                   )}
                 </div>
-                <div className="flex items-center gap-px sm:gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <item.icon className="size-4.5 text-zinc-500" />
 
                   {item.description && (
-                    <div className="text-muted-foreground text-sm font-semibold text-pretty">
+                    <div className="text-muted-foreground text-sm font-semibold text-nowrap">
                       {item.description}
                     </div>
                   )}
