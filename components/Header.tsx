@@ -8,7 +8,6 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
@@ -31,8 +30,8 @@ const Header = () => {
   const iconClasses = "text-xl text-default-500 pointer-events-none shrink-0";
 
   return (
-    <Navbar className="z-200">
-      <NavbarContent>
+    <Navbar className="max-sm:bg-transparent max-sm:backdrop-blur-none z-200">
+      <NavbarContent className="w-fit !flex-none" justify="start">
         <NavbarBrand>
           <Link href="/">
             <Image src="/logo/icon_alt.svg" width={20} height={20} alt="Logo" />
@@ -40,7 +39,7 @@ const Header = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex w-full gap-4" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.name}>
             <Link color="foreground" href={item.href}>
@@ -49,13 +48,7 @@ const Header = () => {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Button as={Link} href="/#contact-us" variant="flat">
-            تواصل معنا
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+
       <Dropdown>
         <DropdownTrigger className="sm:hidden">
           <IoMenuOutline className="size-7" />

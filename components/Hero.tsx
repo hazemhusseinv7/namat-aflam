@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import HoverButton from "@/components/HoverButton";
@@ -8,7 +7,7 @@ import LightRays from "@/components/LightRays";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col justify-between relative w-full min-h-screen overflow-hidden bg-foreground-100/10">
+    <section className="-mt-16 flex flex-col justify-between relative w-full min-h-screen overflow-hidden bg-foreground-100/10">
       <LightRays
         raysOrigin="top-center"
         raysColor="#ffffff"

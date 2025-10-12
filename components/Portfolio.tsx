@@ -25,7 +25,7 @@ const AboutUs = () => {
             as="h2"
             className="font-semibold  text-4xl md:text-5xl"
           >
-            معرض أعمالنا
+            مجموعة الأعمال
           </TextEffect>
         </div>
         <div className="w-full relative">
@@ -41,7 +41,7 @@ const AboutUs = () => {
               {/* Vimeo Iframe */}
               <iframe
                 title={vimeoTitle}
-                src={`https://player.vimeo.com/video/${vimeoId}?autoplay=0&loop=1&title=0&byline=0&portrait=0&muted=1`}
+                src={`https://player.vimeo.com/video/${vimeoId}?autoplay=0&loop=1&title=0&byline=0&portrait=0`}
                 referrerPolicy="strict-origin-when-cross-origin"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 allowFullScreen
