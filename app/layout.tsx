@@ -12,7 +12,7 @@ const almarai = Almarai({
 });
 
 export const metadata: Metadata = {
-  title: "نمط أفلام",
+  title: "NAMAT AFLAM",
   description: "أعمال تناسب منتجك وحملات تُحدث الأثر",
 };
 
