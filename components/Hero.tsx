@@ -3,9 +3,27 @@ import Image from "next/image";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import HoverButton from "@/components/HoverButton";
 import LightRays from "@/components/LightRays";
-// import { LogoCloud } from "@/components/logo-cloud";
+import { LogoCloud } from "@/components/logo-cloud";
+import Loading from "@/components/Loading";
 
-const Hero = () => {
+import { getHeroData, getContactUsData } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
+
+const Hero = async () => {
+  const data: HeroType | null = await getHeroData();
+  const description: ContactUsType | null = await getContactUsData();
+
+  if (!data) return <Loading id="hero" />;
+
+  const logos =
+    data.clientLogos?.map((clientLogo) => ({
+      url: urlFor(clientLogo.logo).width(100).height(50).url(),
+      companyName: clientLogo.companyName,
+      alt: clientLogo.alt,
+    })) || [];
+
+  const title = data.title?.split("\n") || [];
+
   return (
     <section className="-mt-16 flex flex-col justify-between relative w-full min-h-screen overflow-hidden bg-foreground-100/10">
       <LightRays
@@ -34,19 +52,28 @@ const Hero = () => {
 
         <div className="flex flex-col gap-2 font-semibold text-2xl sm:text-4xl md:text-5xl lg:text-7xl">
           <div className="flex flex-col gap-2 min-h-[4.5rem] lg:min-h-38 lg:leading-[1.2]">
-            <TextEffect per="word" preset="blur" delay={0.5} as="h1">
-              أعمال تناسب منتجك
-            </TextEffect>
-            <TextEffect per="word" preset="blur" delay={1.5}>
-              وحملات تُحدث الأثر
-            </TextEffect>
+            {title.map((line, i) => (
+              <TextEffect
+                key={i}
+                per="word"
+                preset="blur"
+                delay={0.5 + i * 1}
+                as={i === 0 ? "h1" : "div"}
+              >
+                {line}
+              </TextEffect>
+            ))}
           </div>
 
-          <HoverButton content="تواصل معنا" className="mx-auto mt-4" />
+          <HoverButton
+            content={data.button}
+            className="mx-auto mt-4"
+            data={description}
+          />
         </div>
       </div>
 
-      {/* <LogoCloud /> */}
+      <LogoCloud logos={logos} />
     </section>
   );
 };

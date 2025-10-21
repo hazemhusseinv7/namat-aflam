@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import HoverLink from "@/components/HoverLink";
 
+import { getSettingsData } from "@/lib/sanity/queries";
+
 import {
   FaSquareVimeo,
   FaSquareInstagram,
@@ -34,30 +36,32 @@ const links = [
   },
 ];
 
-const socialMedia = [
-  {
-    name: "Vimeo",
-    link: process.env.NEXT_PUBLIC_VIMEO,
-    icon: FaSquareVimeo,
-  },
-  {
-    name: "Instagram",
-    link: process.env.NEXT_PUBLIC_INSTAGRAM,
-    icon: FaSquareInstagram,
-  },
-  {
-    name: "Tiktok",
-    link: process.env.NEXT_PUBLIC_TIKTOK,
-    icon: FaTiktok,
-  },
-  {
-    name: "Youtube",
-    link: process.env.NEXT_PUBLIC_YOUTUBE,
-    icon: FaYoutube,
-  },
-].filter((item) => item.link);
+const Footer = async () => {
+  const settings = await getSettingsData();
 
-const Footer = () => {
+  const socialMedia = [
+    {
+      name: "Vimeo",
+      link: settings?.vimeo,
+      icon: FaSquareVimeo,
+    },
+    {
+      name: "Instagram",
+      link: settings?.instagram,
+      icon: FaSquareInstagram,
+    },
+    {
+      name: "Tiktok",
+      link: settings?.tiktok,
+      icon: FaTiktok,
+    },
+    {
+      name: "Youtube",
+      link: settings?.youtube,
+      icon: FaYoutube,
+    },
+  ].filter((item) => item.link);
+
   return (
     <footer className="pt-14 pb-10 relative">
       <div className="mx-auto max-w-5xl px-6 relative z-10">

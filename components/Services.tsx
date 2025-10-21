@@ -2,30 +2,17 @@ import Image from "next/image";
 
 import { Section } from "@/components/ui/section";
 import { Tilt } from "@/components/motion-primitives/tilt";
+import Loading from "@/components/Loading";
 
-const Services = () => {
-  const services = [
-    {
-      title: "مقاطع ترويجية",
-      description: "إعلانات تُعرض كأنها مشاهد افتتاحية لفيلم",
-      img: "/services/img-1.svg",
-    },
-    {
-      title: "تصوير فوتوغرافي",
-      description: "صور بإضاءة وعمق يجعلها تصلح كملصق سينمائي",
-      img: "/services/img-2.svg",
-    },
-    {
-      title: "محتوى سوشيال ميديا",
-      description: "لقطات قصيرة… مثل التريلر، تخطف الانتباه في ثوانٍ",
-      img: "/services/img-3.svg",
-    },
-    {
-      title: "إدارة الحملات الترويجية",
-      description: "نكتب السيناريو التسويقي ونُخرج العرض الرقمي",
-      img: "/services/img-4.svg",
-    },
-  ];
+import { getServicesData } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
+
+const Services = async () => {
+  const data: ServicesType | null = await getServicesData();
+
+  if (!data) return <Loading id="services" />;
+
+  const services = data.cards;
 
   return (
     <Section id="services" className="relative">
@@ -45,10 +32,10 @@ const Services = () => {
               >
                 <div className="size-full bg-zinc-800">
                   <Image
-                    src={service.img}
+                    src={urlFor(service.image).width(400).height(400).url()}
                     width={400}
                     height={400}
-                    alt={service.title}
+                    alt={service.image.alt || service.title}
                     className="size-72 lg:size-100 mx-auto object-cover -mt-10 lg:-mt-20"
                   />
                 </div>

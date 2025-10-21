@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import {
   Form,
   Input,
@@ -11,7 +13,6 @@ import {
 } from "@heroui/react";
 
 import { Card } from "@/components/ui/card";
-import { useState } from "react";
 
 interface FormDataType {
   name: string;

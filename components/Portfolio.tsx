@@ -1,18 +1,14 @@
-"use client";
-
-import { useState } from "react";
-
-import { Spinner } from "@heroui/spinner";
-
 import { Section } from "@/components/ui/section";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
+import PortfolioVideo from "@/components/PortfolioVideo";
+import Loading from "@/components/Loading";
 
-const AboutUs = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+import { getPortfolioData } from "@/lib/sanity/queries";
 
-  const vimeoUrl = process.env.NEXT_PUBLIC_VIMEO_URL;
-  const vimeoId = vimeoUrl?.split("/").pop();
-  const vimeoTitle = process.env.NEXT_PUBLIC_VIMEO_TITLE;
+const AboutUs = async () => {
+  const data: PortfolioType | null = await getPortfolioData();
+
+  if (!data) return <Loading id="portfolio" />;
 
   return (
     <Section id="portfolio" className="overflow-hidden">
@@ -29,26 +25,11 @@ const AboutUs = () => {
           </TextEffect>
         </div>
         <div className="w-full relative">
-          {vimeoId && (
-            <div>
-              {/* Loading state */}
-              {!isVideoLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Spinner className="text-orange-400" />
-                </div>
-              )}
-
-              {/* Vimeo Iframe */}
-              <iframe
-                title={vimeoTitle}
-                src={`https://player.vimeo.com/video/${vimeoId}?autoplay=0&loop=1&title=0&byline=0&portrait=0`}
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                allowFullScreen
-                onLoad={() => setIsVideoLoaded(true)}
-                className="w-auto h-full min-h-[532.8px] mx-auto"
-              />
-            </div>
+          {data.vimeoUrl && (
+            <PortfolioVideo
+              vimeoUrl={data.vimeoUrl}
+              vimeoTitle={data.vimeoTitle}
+            />
           )}
         </div>
       </div>

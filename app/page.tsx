@@ -6,16 +6,21 @@ import Services from "@/components/Services";
 import ContactUs from "@/components/ContactUs/ContactUs";
 import Cta from "@/components/Cta";
 
-export default function Home() {
+import { getWhyUsData, getContactUsData } from "@/lib/sanity/queries";
+
+export default async function Home() {
+  const whyUsData: WhyUsType | null = await getWhyUsData();
+  const ContactUsData: ContactUsType | null = await getContactUsData();
+
   return (
     <main>
       <Hero />
       <Stats />
       <AboutUs />
-      <WhyUs />
+      <WhyUs data={whyUsData} />
       <Services />
       <ContactUs />
-      <Cta />
+      <Cta data={ContactUsData} />
     </main>
   );
 }

@@ -3,38 +3,27 @@ import Image from "next/image";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 import { ProgressiveBlur } from "@/components/motion-primitives/progressive-blur";
 
-export const LogoCloud = () => {
-  const logos = [
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-    "/logo/icon_alt.svg",
-  ];
+interface LogoCloudProps {
+  logos: {
+    url: string;
+    companyName?: string;
+    alt?: string;
+  }[];
+}
 
+export const LogoCloud = ({ logos }: LogoCloudProps) => {
   return (
     <section className="pb-20 md:pb-12" dir="ltr">
       <div className="group relative m-auto">
         <div className="flex flex-col items-center md:flex-row">
           <div className="relative py-6 w-full">
             <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
-              {logos.map((logo) => (
-                <div key={logo} className="flex">
+              {logos.map((logo, i) => (
+                <div key={i} className="flex">
                   <Image
                     className="mx-auto h-5 w-fit"
-                    src={logo}
-                    alt="Logo"
+                    src={logo.url}
+                    alt={logo.alt || logo.companyName || "Client logo"}
                     height={20}
                     width={20}
                   />
@@ -42,8 +31,8 @@ export const LogoCloud = () => {
               ))}
             </InfiniteSlider>
 
-            <div className="bg-linear-to-r absolute inset-y-0 left-0 w-20"></div>
-            <div className="bg-linear-to-l absolute inset-y-0 right-0 w-20"></div>
+            <div className="bg-linear-to-r absolute inset-y-0 left-0 w-20" />
+            <div className="bg-linear-to-l absolute inset-y-0 right-0 w-20" />
             <ProgressiveBlur
               className="pointer-events-none absolute left-0 top-0 h-full w-20"
               direction="left"

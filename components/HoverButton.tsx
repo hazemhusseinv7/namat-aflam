@@ -20,9 +20,10 @@ import { cn } from "@/lib/utils";
 interface HoverButtonProps {
   content: string;
   className?: string;
+  data?: ContactUsType | null;
 }
 
-const HoverButton = ({ content, className }: HoverButtonProps) => {
+const HoverButton = ({ content, className, data }: HoverButtonProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -53,36 +54,37 @@ const HoverButton = ({ content, className }: HoverButtonProps) => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                <TextEffect
-                  per="line"
-                  as="h2"
-                  segmentWrapperClassName="overflow-hidden block"
-                  variants={{
-                    container: {
-                      hidden: { opacity: 0 },
-                      visible: {
-                        opacity: 1,
-                        transition: { staggerChildren: 0.2 },
-                      },
-                    },
-                    item: {
-                      hidden: {
-                        opacity: 0,
-                        y: 40,
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          duration: 0.4,
+                {data?.description && (
+                  <TextEffect
+                    per="line"
+                    as="h2"
+                    segmentWrapperClassName="overflow-hidden block"
+                    variants={{
+                      container: {
+                        hidden: { opacity: 0 },
+                        visible: {
+                          opacity: 1,
+                          transition: { staggerChildren: 0.2 },
                         },
                       },
-                    },
-                  }}
-                >
-                  {`فكرتك جاهزة…؟
-                       نحن نعرف كيف نرويها!`}
-                </TextEffect>
+                      item: {
+                        hidden: {
+                          opacity: 0,
+                          y: 40,
+                        },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          transition: {
+                            duration: 0.4,
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    {data.description}
+                  </TextEffect>
+                )}
               </ModalHeader>
               <ModalBody>
                 <ContactUsComponent />
