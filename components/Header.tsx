@@ -18,6 +18,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import { RiTeamFill, RiQuestionnaireFill } from "react-icons/ri";
 import { MdVideoLibrary } from "react-icons/md";
 import { BiSolidVideoRecording } from "react-icons/bi";
+import { HiNewspaper } from "react-icons/hi2";
 
 const Header = () => {
   const menuItems = [
@@ -25,7 +26,7 @@ const Header = () => {
     { name: "أعمالنا", link: "/#portfolio", icon: MdVideoLibrary },
     { name: "لماذا نحن", link: "/#why-us", icon: RiQuestionnaireFill },
     { name: "خدماتنا", link: "/#services", icon: BiSolidVideoRecording },
-    { name: "المدونة", link: "/blog", icon: BiSolidVideoRecording },
+    { name: "المدونة", link: "/blog", icon: HiNewspaper },
   ];
 
   const iconClasses = "text-xl text-default-500 pointer-events-none shrink-0";
@@ -33,11 +34,18 @@ const Header = () => {
   return (
     <Navbar className="max-sm:bg-transparent max-sm:backdrop-blur-none z-200">
       <NavbarContent className="w-fit !flex-none" justify="start">
-        <NavbarBrand>
-          <Link href="/">
-            <Image src="/logo/icon_alt.svg" width={20} height={20} alt="Logo" />
-          </Link>
-        </NavbarBrand>
+        <NavbarItem>
+          <NavbarBrand>
+            <Link href="/">
+              <Image
+                src="/logo/icon_alt.svg"
+                width={20}
+                height={20}
+                alt="Logo"
+              />
+            </Link>
+          </NavbarBrand>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex w-full gap-4" justify="center">
