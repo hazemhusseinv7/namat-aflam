@@ -24,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="dark scroll-smooth">
       <body className={`${almarai.variable} antialiased font-almarai`}>
-        <Header />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
         <Footer />
       </body>
     </html>

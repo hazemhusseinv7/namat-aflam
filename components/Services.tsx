@@ -12,17 +12,15 @@ const Services = async () => {
 
   if (!data) return <Loading id="services" />;
 
-  const services = data.cards;
-
   return (
     <Section id="services" className="relative">
       <div className="flex flex-col justify-center items-center relative z-10 gap-40">
         <h2 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">
-          خدماتنا
+          {data.title}
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-10">
-          {services.map((service) => (
+          {data.cards.map((service) => (
             <Tilt rotationFactor={8} isRevese key={service.title}>
               <div
                 style={{

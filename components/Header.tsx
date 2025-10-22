@@ -21,10 +21,11 @@ import { BiSolidVideoRecording } from "react-icons/bi";
 
 const Header = () => {
   const menuItems = [
-    { name: "من نحن", href: "/about-us", icon: RiTeamFill },
-    { name: "أعمالنا", href: "/#portfolio", icon: MdVideoLibrary },
-    { name: "لماذا نحن", href: "/#why-us", icon: RiQuestionnaireFill },
-    { name: "خدماتنا", href: "/#services", icon: BiSolidVideoRecording },
+    { name: "من نحن", link: "/about-us", icon: RiTeamFill },
+    { name: "أعمالنا", link: "/#portfolio", icon: MdVideoLibrary },
+    { name: "لماذا نحن", link: "/#why-us", icon: RiQuestionnaireFill },
+    { name: "خدماتنا", link: "/#services", icon: BiSolidVideoRecording },
+    { name: "المدونة", link: "/blog", icon: BiSolidVideoRecording },
   ];
 
   const iconClasses = "text-xl text-default-500 pointer-events-none shrink-0";
@@ -40,10 +41,10 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex w-full gap-4" justify="center">
-        {menuItems.map((item) => (
-          <NavbarItem key={item.name}>
-            <Link color="foreground" href={item.href}>
-              {item.name}
+        {menuItems.map(({ name, link, icon: Icon }) => (
+          <NavbarItem key={name}>
+            <Link color="foreground" href={link}>
+              {name}
             </Link>
           </NavbarItem>
         ))}
@@ -54,10 +55,10 @@ const Header = () => {
           <IoMenuOutline className="size-7" />
         </DropdownTrigger>
         <DropdownMenu aria-label="Dropdown menu with icons" variant="faded">
-          {menuItems.map(({ name, href, icon: Icon }) => (
+          {menuItems.map(({ name, link, icon: Icon }) => (
             <DropdownItem
               as={Link}
-              href={href}
+              href={link}
               key={name}
               startContent={<Icon className={iconClasses} />}
             >

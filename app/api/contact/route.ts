@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import ContactEmail from "@/emails/ContactEmail";
-import { sanityWriteClient } from "@/lib/sanity/client";
+import { sanityClient } from "@/lib/sanity/client";
 
 const resendApiKey = process.env.RESEND_API_KEY,
   contactEmail = process.env.CONTACT_EMAIL,
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
           notes: "",
         };
 
-        const sanityResult = await sanityWriteClient.create(submissionData);
+        const sanityResult = await sanityClient.create(submissionData);
         results.sanity = { success: true, id: sanityResult._id, error: null };
         console.log("Form submission saved to Sanity:", sanityResult._id);
       } catch (sanityError) {

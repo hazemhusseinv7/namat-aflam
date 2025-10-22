@@ -67,3 +67,27 @@ interface SettingsType {
   tiktok?: string;
   youtube?: string;
 }
+
+interface CategoryType {
+  title: string;
+  description?: any[];
+}
+
+interface AuthorType {
+  name: string;
+  image?: any;
+  bio?: any[];
+}
+
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  mainImage: any;
+  publishedAt?: string;
+  body: any[];
+  author?: AuthorType;
+  categories?: CategoryType[];
+}

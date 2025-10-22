@@ -31,6 +31,10 @@ const links = [
     link: "/#services",
   },
   {
+    title: "المدونة",
+    link: "/blog",
+  },
+  {
     title: "تواصل معنا",
     link: "/#contact-us",
   },

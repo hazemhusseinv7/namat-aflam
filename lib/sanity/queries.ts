@@ -141,3 +141,32 @@ export async function getSettingsData(): Promise<SettingsType | null> {
     return null;
   }
 }
+
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  const query = `*[_type == "blog"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    "author": author->{name, image, bio},
+    "categories": categories[]->{title, description}
+  }`;
+
+  return await sanityClient.fetch(query);
+}
+
+export async function getBlogPost(slug: string): Promise<BlogPost> {
+  const query = `*[_type == "blog" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    "author": author->{name, image, bio},
+    "categories": categories[]->{title, description}
+  }`;
+
+  return await sanityClient.fetch(query, { slug });
+}

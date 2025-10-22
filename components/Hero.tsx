@@ -15,12 +15,14 @@ const Hero = async () => {
 
   if (!data) return <Loading id="hero" />;
 
-  const logos =
+  let logos =
     data.clientLogos?.map((clientLogo) => ({
       url: urlFor(clientLogo.logo).width(100).height(50).url(),
       companyName: clientLogo.companyName,
       alt: clientLogo.alt,
     })) || [];
+
+  logos = [...logos, ...logos];
 
   const title = data.title?.split("\n") || [];
 

@@ -30,7 +30,7 @@ const WhyUs = ({ data }: { data?: WhyUsType | null }) => {
           ref={container}
           className="relative flex w-full flex-col items-center justify-center pt-10 sm:pt-20 lg:pt-80 pb-80"
         >
-          <div className="absolute left-1/2 top-[10%] grid -translate-x-1/2 content-start justify-items-center gap-6 text-center">
+          <div className="absolute left-1/2 top-[10%] -translate-x-1/2 content-start justify-items-center gap-6 text-center">
             <h2 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">
               {data.title}
             </h2>
