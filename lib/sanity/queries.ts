@@ -12,7 +12,7 @@ export async function getHeroData(): Promise<HeroType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching hero data:", error);
     return null;
@@ -33,7 +33,7 @@ export async function getStatsData(): Promise<StatsType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching stats data:", error);
     return null;
@@ -48,7 +48,7 @@ export async function getPortfolioData(): Promise<PortfolioType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching portfolio data:", error);
     return null;
@@ -69,7 +69,7 @@ export async function getWhyUsData(): Promise<WhyUsType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching why us data:", error);
     return null;
@@ -90,7 +90,7 @@ export async function getServicesData(): Promise<ServicesType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching services data:", error);
     return null;
@@ -103,7 +103,7 @@ export async function getContactUsData(): Promise<ContactUsType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching contact us data:", error);
     return null;
@@ -119,7 +119,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching about us data:", error);
     return null;
@@ -135,7 +135,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
   }`;
 
   try {
-    return await sanityClient.fetch(query);
+    return await sanityClient.fetch(query, { cache: "no-store" as any });
   } catch (error) {
     console.error("Error fetching settings data:", error);
     return null;
@@ -153,7 +153,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     "categories": categories[]->{title, description}
   }`;
 
-  return await sanityClient.fetch(query);
+  return await sanityClient.fetch(query, { cache: "no-store" as any });
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPost> {
