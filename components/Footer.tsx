@@ -13,32 +13,48 @@ import {
   FaRegCopyright,
 } from "react-icons/fa6";
 
-const links = [
-  {
-    title: "من نحن",
-    link: "/about-us",
-  },
-  {
-    title: "أعمالنا",
-    link: "/#portfolio",
-  },
-  {
-    title: "لماذا نحن",
-    link: "/#why-us",
-  },
-  {
-    title: "خدماتنا",
-    link: "/#services",
-  },
-  {
-    title: "المدونة",
-    link: "/blog",
-  },
-  {
-    title: "تواصل معنا",
-    link: "/#contact-us",
-  },
-];
+const links = {
+  main: [
+    {
+      title: "من نحن",
+      link: "/about-us",
+    },
+    {
+      title: "أعمالنا",
+      link: "/#portfolio",
+    },
+    {
+      title: "لماذا نحن",
+      link: "/#why-us",
+    },
+    {
+      title: "خدماتنا",
+      link: "/#services",
+    },
+    {
+      title: "المدونة",
+      link: "/blog",
+    },
+    {
+      title: "تواصل معنا",
+      link: "/#contact-us",
+    },
+  ],
+  legal: [
+    {
+      title: "الشروط والأحكام",
+      link: "/terms-and-conditions",
+    },
+    {
+      title: "سياسة الخصوصية",
+      link: "/privacy-policy",
+    },
+    {
+      title: "الأسئلة الشائعة",
+      link: "/frequently-asked-questions",
+    },
+  ],
+};
 
 const Footer = async () => {
   const settings = await getSettingsData();
@@ -79,11 +95,21 @@ const Footer = async () => {
           />
         </Link>
 
+        {/* Main Navigation Links */}
         <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
-          {links.map((link, index) => (
+          {links.main.map((link, index) => (
             <HoverLink key={index} href={link.link} label={link.title} />
           ))}
         </div>
+
+        {/* Legal Links */}
+        <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+          {links.legal.map((link, index) => (
+            <HoverLink key={index} href={link.link} label={link.title} />
+          ))}
+        </div>
+
+        {/* Social Media Links */}
         <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
           {socialMedia.map((item) => (
             <Link

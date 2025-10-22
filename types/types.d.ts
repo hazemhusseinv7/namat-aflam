@@ -91,3 +91,25 @@ interface BlogPost {
   author?: AuthorType;
   categories?: CategoryType[];
 }
+
+interface TermsAndConditionsType {
+  sections: {
+    title: string;
+    description: string;
+  }[];
+}
+
+interface PrivacyPolicyType {
+  sections: {
+    title: string;
+    description: string;
+  }[];
+}
+
+interface FrequentlyAskedQuestionsType {
+  questions: {
+    title: string;
+    subtitle?: string;
+    description: string;
+  }[];
+}

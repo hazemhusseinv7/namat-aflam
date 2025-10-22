@@ -11,7 +11,7 @@ export default function HoverLink({ label, href }: Props) {
       {/* link container */}
       <div className="group h-[40px] p-2 overflow-hidden">
         {/* labels container */}
-        <div className="flex flex-col items-center justify-center group-hover:-translate-y-10 transition duration-700 text-xl">
+        <div className="flex flex-col items-center justify-center group-hover:-translate-y-10 transition duration-700 text-lg lg:text-xl">
           <span className="py-1">{label}</span>
           <span className="py-1">{label}</span>
         </div>
