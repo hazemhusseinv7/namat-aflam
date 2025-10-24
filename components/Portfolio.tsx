@@ -21,7 +21,7 @@ const AboutUs = async () => {
             as="h2"
             className="font-semibold  text-4xl md:text-5xl"
           >
-            مجموعة الأعمال
+            {data.title}
           </TextEffect>
         </div>
         <div className="w-full relative">

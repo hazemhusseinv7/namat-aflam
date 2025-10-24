@@ -38,6 +38,8 @@ const portableTextComponents = {
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
 
+  if (!posts) return [];
+
   return posts.map((post) => ({
     slug: post.slug.current,
   }));

@@ -1,13 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Accordion, AccordionItem } from "@heroui/react";
 import { getFrequentlyAskedQuestionsData } from "@/lib/sanity/queries";
-import Loading from "@/components/Loading";
-import { useEffect, useState } from "react";
 
 export default function Page() {
   const [data, setData] = useState<FrequentlyAskedQuestionsType | null>(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,8 +15,6 @@ export default function Page() {
         setData(faqData);
       } catch (error) {
         console.error("Error fetching FAQ data:", error);
-      } finally {
-        setLoading(false);
       }
     };
 

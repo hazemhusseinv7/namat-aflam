@@ -1,5 +1,3 @@
-import Loading from "@/components/Loading";
-
 import { getTermsAndConditionsData } from "@/lib/sanity/queries";
 
 import { HiOutlineDocumentText } from "react-icons/hi2";

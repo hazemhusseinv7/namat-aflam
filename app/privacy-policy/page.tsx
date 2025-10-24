@@ -1,5 +1,3 @@
-import Loading from "@/components/Loading";
-
 import { getPrivacyPolicyData } from "@/lib/sanity/queries";
 
 import { HiOutlineDocumentText } from "react-icons/hi2";

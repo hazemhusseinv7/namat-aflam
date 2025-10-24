@@ -17,7 +17,7 @@ if (!contactEmail) {
 if (!fromEmail) {
   console.error("FROM_EMAIL is not defined in environment variables");
 }
-if (sanityApiToken) {
+if (!sanityApiToken) {
   console.error("SANITY_API_TOKEN is not defined in environment variables");
 }
 

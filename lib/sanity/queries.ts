@@ -16,7 +16,7 @@ export async function getHeroData(): Promise<HeroType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["hero"] },
       }
     );
   } catch (error) {
@@ -43,7 +43,7 @@ export async function getStatsData(): Promise<StatsType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["stats"] },
       }
     );
   } catch (error) {
@@ -64,7 +64,7 @@ export async function getPortfolioData(): Promise<PortfolioType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["portfolio"] },
       }
     );
   } catch (error) {
@@ -91,7 +91,7 @@ export async function getWhyUsData(): Promise<WhyUsType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["why-us"] },
       }
     );
   } catch (error) {
@@ -118,7 +118,7 @@ export async function getServicesData(): Promise<ServicesType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["services"] },
       }
     );
   } catch (error) {
@@ -137,7 +137,7 @@ export async function getContactUsData(): Promise<ContactUsType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["contact-us"] },
       }
     );
   } catch (error) {
@@ -159,7 +159,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["about-us"] },
       }
     );
   } catch (error) {
@@ -181,7 +181,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["settings"] },
       }
     );
   } catch (error) {
@@ -190,7 +190,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
   }
 }
 
-export async function getBlogPosts(): Promise<BlogPost[]> {
+export async function getBlogPosts(): Promise<BlogPost[] | null> {
   const query = `*[_type == "blog"] | order(publishedAt desc) {
     _id,
     title,
@@ -201,16 +201,21 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     "categories": categories[]->{title, description}
   }`;
 
-  return await sanityClient.fetch(
-    query,
-    {},
-    {
-      cache: "no-store",
-    }
-  );
+  try {
+    return await sanityClient.fetch(
+      query,
+      {},
+      {
+        next: { revalidate: 60, tags: ["blog"] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching blog posts:", error);
+    return [];
+  }
 }
 
-export async function getBlogPost(slug: string): Promise<BlogPost> {
+export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   const query = `*[_type == "blog" && slug.current == $slug][0] {
     _id,
     title,
@@ -222,7 +227,18 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
     "categories": categories[]->{title, description}
   }`;
 
-  return await sanityClient.fetch(query, { slug });
+  try {
+    return await sanityClient.fetch(
+      query,
+      { slug },
+      {
+        next: { revalidate: 60, tags: [`blog-post-${slug}`] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
+    return null;
+  }
 }
 
 export async function getTermsAndConditionsData(): Promise<TermsAndConditionsType | null> {
@@ -238,7 +254,7 @@ export async function getTermsAndConditionsData(): Promise<TermsAndConditionsTyp
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["terms-and-conditions"] },
       }
     );
   } catch (error) {
@@ -260,7 +276,7 @@ export async function getPrivacyPolicyData(): Promise<PrivacyPolicyType | null> 
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["privacy-policy"] },
       }
     );
   } catch (error) {
@@ -283,7 +299,7 @@ export async function getFrequentlyAskedQuestionsData(): Promise<FrequentlyAsked
       query,
       {},
       {
-        cache: "no-store",
+        next: { revalidate: 60, tags: ["frequently-asked-questions"] },
       }
     );
   } catch (error) {

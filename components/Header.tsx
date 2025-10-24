@@ -49,7 +49,7 @@ const Header = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex w-full gap-4" justify="center">
-        {menuItems.map(({ name, link, icon: Icon }) => (
+        {menuItems.map(({ name, link }) => (
           <NavbarItem key={name}>
             <Link color="foreground" href={link}>
               {name}
