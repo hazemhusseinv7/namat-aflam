@@ -16,7 +16,7 @@ export async function getHeroData(): Promise<HeroType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["hero"] },
+        next: { revalidate: 60, tags: ["hero", "content"] },
       }
     );
   } catch (error) {
@@ -43,7 +43,7 @@ export async function getStatsData(): Promise<StatsType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["stats"] },
+        next: { revalidate: 60, tags: ["stats", "content"] },
       }
     );
   } catch (error) {
@@ -64,7 +64,7 @@ export async function getPortfolioData(): Promise<PortfolioType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["portfolio"] },
+        next: { revalidate: 60, tags: ["portfolio", "content"] },
       }
     );
   } catch (error) {
@@ -91,7 +91,7 @@ export async function getWhyUsData(): Promise<WhyUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["why-us"] },
+        next: { revalidate: 60, tags: ["why-us", "content"] },
       }
     );
   } catch (error) {
@@ -118,7 +118,7 @@ export async function getServicesData(): Promise<ServicesType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["services"] },
+        next: { revalidate: 60, tags: ["services", "content"] },
       }
     );
   } catch (error) {
@@ -137,7 +137,7 @@ export async function getContactUsData(): Promise<ContactUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["contact-us"] },
+        next: { revalidate: 60, tags: ["contact-us", "content"] },
       }
     );
   } catch (error) {
@@ -159,7 +159,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["about-us"] },
+        next: { revalidate: 60, tags: ["about-us", "content"] },
       }
     );
   } catch (error) {
@@ -181,7 +181,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["settings"] },
+        next: { revalidate: 60, tags: ["settings", "content"] },
       }
     );
   } catch (error) {
@@ -206,7 +206,7 @@ export async function getBlogPosts(): Promise<BlogPost[] | null> {
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["blog"] },
+        next: { revalidate: 60, tags: ["blog", "content"] },
       }
     );
   } catch (error) {
@@ -232,7 +232,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
       query,
       { slug },
       {
-        next: { revalidate: 60, tags: [`blog-post-${slug}`] },
+        next: { revalidate: 60, tags: [`blog-post-${slug}`, "content"] },
       }
     );
   } catch (error) {
@@ -254,7 +254,7 @@ export async function getTermsAndConditionsData(): Promise<TermsAndConditionsTyp
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["terms-and-conditions"] },
+        next: { revalidate: 60, tags: ["terms-and-conditions", "content"] },
       }
     );
   } catch (error) {
@@ -276,7 +276,7 @@ export async function getPrivacyPolicyData(): Promise<PrivacyPolicyType | null> 
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["privacy-policy"] },
+        next: { revalidate: 60, tags: ["privacy-policy", "content"] },
       }
     );
   } catch (error) {
@@ -299,7 +299,10 @@ export async function getFrequentlyAskedQuestionsData(): Promise<FrequentlyAsked
       query,
       {},
       {
-        next: { revalidate: 60, tags: ["frequently-asked-questions"] },
+        next: {
+          revalidate: 60,
+          tags: ["frequently-asked-questions", "content"],
+        },
       }
     );
   } catch (error) {
