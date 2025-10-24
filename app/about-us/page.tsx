@@ -7,7 +7,7 @@ import { getAboutUsData } from "@/lib/sanity/queries";
 export default async function Page() {
   const data: AboutUsType | null = await getAboutUsData();
 
-  if (!data) return <Loading id="about-us" />;
+  if (!data) return <Loading id="about-us" className="min-h-screen" />;
 
   return (
     <div className="flex max-lg:flex-col mx-auto max-w-5xl space-y-8 md:space-y-12 px-4 py-12 sm:py-24 md:py-32">

@@ -14,13 +14,7 @@ const Loading = ({
   className?: string;
 }) => {
   return (
-    <Tag
-      id={id}
-      className={cn(
-        "flex justify-center items-center min-h-screen p-20",
-        className
-      )}
-    >
+    <Tag id={id} className={cn(className, "flex justify-center items-center")}>
       <Spinner />
     </Tag>
   );

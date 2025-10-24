@@ -110,7 +110,7 @@ export default async function Page({
               {post.author && (
                 // Avatar Media
                 <Author
-                  className="flex justify-between items-center  "
+                  className="flex justify-between items-center"
                   name={post.author.name}
                   image={post.author.image}
                   bio={post.author.bio}
@@ -125,7 +125,7 @@ export default async function Page({
                     {post.categories.map((category, i) => (
                       <Category
                         key={i}
-                        className="m-0.5 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 transition-colors duration-300"
+                        className="rounded-full"
                         title={category.title}
                         description={category.description}
                       />

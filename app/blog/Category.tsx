@@ -21,7 +21,7 @@ const Category = ({
 
   return (
     <>
-      <Button className={className} onPress={onOpen}>
+      <Button className={className} onPress={onOpen}  >
         {title}
       </Button>
 
@@ -35,10 +35,14 @@ const Category = ({
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader>{title}</ModalHeader>
+              <ModalHeader>
+                <span className="text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                  {title}
+                </span>
+              </ModalHeader>
               <ModalBody>
                 {description && (
-                  <span className="text-gray-400 dark:text-neutral-400">
+                  <span className="text-sm text-gray-600 dark:text-neutral-400">
                     {description}
                   </span>
                 )}

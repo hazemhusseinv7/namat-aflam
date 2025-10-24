@@ -90,16 +90,14 @@ const Author = ({
                     )}
                   </div>
 
-                  <div className="grow">
-                    <p className="text-lg font-semibold text-gray-200 dark:text-neutral-200">
-                      {name}
-                    </p>
-                  </div>
+                  <span className="grow text-lg font-semibold text-gray-800 dark:text-neutral-200">
+                    {name}
+                  </span>
                 </div>
               </ModalHeader>
               <ModalBody className="relative">
                 {bio && (
-                  <div className="text-sm text-gray-400 dark:text-neutral-400">
+                  <div className="text-sm text-gray-600 dark:text-neutral-400">
                     <PortableText value={bio} />
                   </div>
                 )}

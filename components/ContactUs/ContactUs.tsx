@@ -8,7 +8,7 @@ import { getContactUsData } from "@/lib/sanity/queries";
 const ContactUs = async () => {
   const data: ContactUsType | null = await getContactUsData();
 
-  if (!data) return <Loading id="contact-us" />;
+  if (!data) return <Loading id="contact-us" className="min-h-screen" />;
 
   return (
     <Section id="contact-us">

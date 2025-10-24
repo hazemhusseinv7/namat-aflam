@@ -10,7 +10,7 @@ import { urlFor } from "@/lib/sanity/image";
 const Services = async () => {
   const data: ServicesType | null = await getServicesData();
 
-  if (!data) return <Loading id="services" />;
+  if (!data) return <Loading id="services" className="min-h-screen" />;
 
   return (
     <Section id="services" className="relative">

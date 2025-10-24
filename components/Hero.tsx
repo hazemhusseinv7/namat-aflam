@@ -13,7 +13,7 @@ const Hero = async () => {
   const data: HeroType | null = await getHeroData();
   const description: ContactUsType | null = await getContactUsData();
 
-  if (!data) return <Loading id="hero" />;
+  if (!data) return <Loading id="hero" className="min-h-screen" />;
 
   let logos =
     data.clientLogos?.map((clientLogo) => ({

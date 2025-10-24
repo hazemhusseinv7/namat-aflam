@@ -10,7 +10,7 @@ const PortfolioVideo = ({
   return (
     <iframe
       title={vimeoTitle || "Portfolio Video"}
-      src={`https://player.vimeo.com/video/${vimeoId}?autoplay=0&loop=1&title=0&byline=0&portrait=0`}
+      src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&loop=1&title=0&byline=0&portrait=0`}
       referrerPolicy="strict-origin-when-cross-origin"
       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
       allowFullScreen

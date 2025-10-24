@@ -15,7 +15,7 @@ import { FaPlus } from "react-icons/fa6";
 const Stats = async () => {
   const data: StatsType | null = await getStatsData();
 
-  if (!data) return <Loading id="stats" />;
+  if (!data) return <Loading id="stats" className="min-h-screen" />;
 
   return (
     <Section id="stats" className="px-2">

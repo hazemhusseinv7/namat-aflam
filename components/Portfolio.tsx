@@ -8,7 +8,7 @@ import { getPortfolioData } from "@/lib/sanity/queries";
 const AboutUs = async () => {
   const data: PortfolioType | null = await getPortfolioData();
 
-  if (!data) return <Loading id="portfolio" />;
+  if (!data) return <Loading id="portfolio" className="min-h-screen" />;
 
   return (
     <Section id="portfolio" className="overflow-hidden">

@@ -19,7 +19,7 @@ const WhyUs = ({ data }: { data?: WhyUsType | null }) => {
     offset: ["start start", "end end"],
   });
 
-  if (!data) return <Loading id="why-us" />;
+  if (!data) return <Loading id="why-us" className="min-h-screen" />;
 
   const cards = data.cards;
 
