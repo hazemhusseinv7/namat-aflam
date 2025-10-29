@@ -13,15 +13,15 @@ interface LogoCloudProps {
 
 export const LogoCloud = ({ logos }: LogoCloudProps) => {
   return (
-    <section className="pb-20 md:pb-12" dir="ltr">
+    <section className="pb-28 md:pb-12" dir="ltr">
       <div className="group relative m-auto">
         <div className="flex flex-col items-center md:flex-row">
           <div className="relative py-6 w-full">
-            <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
+            <InfiniteSlider speedOnHover={20} speed={40} gap={80}>
               {logos.map((logo, i) => (
                 <div key={i} className="flex">
                   <Image
-                    className="mx-auto h-5 w-fit"
+                    className="mx-auto h-8 w-fit"
                     src={logo.url}
                     alt={logo.alt || logo.companyName || "Client logo"}
                     height={20}
